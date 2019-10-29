@@ -11,5 +11,9 @@ fun main(args: Array<String>) {
 
     desde.hasta(hastanum)
 
+    println("Introduce una palabra")
+    val palabra: String = readLine()!!.toString()
+
+    hastaS(palabra)
 
 }
