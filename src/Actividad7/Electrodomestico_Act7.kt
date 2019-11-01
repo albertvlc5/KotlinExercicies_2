@@ -1,24 +1,24 @@
 package Actividad7
 
 open class Electrodomestico () {
-    private var precio: Double=200.0
-    private var color: String="Blanco"
-    private var consumo: Char='B'
-    private var peso : Double=5.0
+    var precioB: Double=200.0
+    var color: String="Blanco"
+    var consumo: Char='B'
+    var peso : Double=5.0
 
     init {
         comprobarConsumoElectrico(consumo);
         comprobarColor(color);
     }
 
-    constructor(precio: Double, peso: Double) : this (){
-        this.precio = precio;
+    constructor(precioB: Double, peso: Double) : this (){
+        this.precioB = precioB;
         this.peso = peso;
         comprobarConsumoElectrico(consumo);
         comprobarColor(color);
     }
-    constructor(precio: Double, color:String, consumo:Char, peso: Double) : this (){
-        this.precio = precio;
+    constructor(precioB: Double, color:String, consumo:Char, peso: Double) : this (){
+        this.precioB = precioB;
         this.color = color;
         this.consumo = consumo;
         this.peso = peso;
@@ -26,6 +26,12 @@ open class Electrodomestico () {
         comprobarColor(color);
     }
 
+    fun getPrecioBase():Double{
+        return this.precioB;
+    }
+    fun setPrecioBase(precio:Double){
+        this.precioB= precio;
+    }
 
 
     private fun comprobarColor(color:String) {
@@ -74,26 +80,28 @@ open class Electrodomestico () {
             println("Letra consumo incorrecta")
         }*/
 
-    fun precioFinal()  {
+    open fun precioFinal()  {
         when (this.consumo) {
-            'A' -> this.precio += 100.0
-            'B'-> this.precio += 80.0
-            'C' -> this.precio += 60.0
-            'D'-> this.precio += 50.0
-            'E' -> this.precio += 30.0
-            'F' -> this.precio += 10.0
+            'A' -> this.precioB += 100.0
+            'B'-> this.precioB += 80.0
+            'C' -> this.precioB += 60.0
+            'D'-> this.precioB += 50.0
+            'E' -> this.precioB += 30.0
+            'F' -> this.precioB += 10.0
         }
         if (this.peso >= 0 && this.peso < 19)  {
-            this.precio += 10.0
+            this.precioB += 10.0
         } else if (this.peso >= 20 && this.peso < 49) {
-            this.precio += 50.0
+            this.precioB += 50.0
         } else if (this.peso >= 50 && this.peso <= 79) {
-            this.precio += 80.0
+            this.precioB += 80.0
         } else if (this.peso >= 80) {
-            this.precio += 100.0
+            this.precioB += 100.0
         }
 
     }
+
+
 
 
 }
